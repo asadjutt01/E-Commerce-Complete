@@ -18,13 +18,11 @@ const app = express()
 app.use(cors())
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+mongoose.connect(`${process.env.MONGODB_URI}/e-commerce`);
+
 app.get("/", (req, res) => {
     res.send("Express App is running")
 })
-
 
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
