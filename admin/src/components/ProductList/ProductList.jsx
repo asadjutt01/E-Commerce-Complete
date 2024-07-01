@@ -6,7 +6,7 @@ const ProductList = () => {
   const [allproducts, setallproducts] = useState([])
 
   const FetchInfo = async () => {
-    await fetch("http://localhost:4000/allproduct", {
+    await fetch("https://e-commerce-backend-ten-gray.vercel.app/allproduct", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ const ProductList = () => {
   }, [])
 
   const RemoveProduct = async (id) => {
-    await fetch("http://localhost:4000/removeproduct", {
+    await fetch("https://e-commerce-backend-ten-gray.vercel.app/removeproduct", {
       method: "POST",
       headers: {
         Accept: "application/json",
