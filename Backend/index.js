@@ -14,8 +14,11 @@ const port = process.env.PORT || 4000;
 
 
 const app = express()
+const corsOptions = {
+    origin: 'https://e-com-shopper.netlify.app/'
+};
+app.use(cors(corsOptions));
 
-app.use(cors())
 app.use(express.json());
 
 mongoose.connect(`${process.env.MONGODB_URI}/e-commerce`);
@@ -61,8 +64,8 @@ exports.handler = async (event) => {
 
 
 
-  
-  // Multer storage configuration
+
+// Multer storage configuration
 //   const storage = multer.memoryStorage({
 //     destination: "./upload/images",
 //     filename: function (req, file, cb) {
@@ -70,23 +73,23 @@ exports.handler = async (event) => {
 //     }
 //   });
 //   const upload = multer({ storage: storage });
-  
+
 //   Serve static images
 //   app.use("/images", express.static("upload/images"));
-  
+
 //   File upload endpoint
 //   app.post("/upload", upload.single('product'), async (req, res) => {
 //     try {
 //       if (!req.file) {
 //         return res.status(400).json({ success: false, error: 'No file uploaded' });
 //       }
-  
+
 //       // Upload file to Cloudinary
 //       const result = await cloudinary.uploader.upload(req.file.path, { resource_type: "auto" });
-  
+
 //       // Delete the file from local storage after uploading to Cloudinary
 //       fs.unlinkSync(req.file.path);
-  
+
 //       res.json({
 //         success: true,
 //         imageUrl: result.secure_url
@@ -315,7 +318,7 @@ app.post("/removefromcart", fetchuser, async (req, res) => {
     res.send({ message: "Product Updaetd" })
 })
 
-app.post("/getcart", fetchuser,async (req, res) => {
+app.post("/getcart", fetchuser, async (req, res) => {
     console.log("Get cart")
     let userdata = await User.findOne({ _id: req.user.id })
     res.send(userdata.cartdata)
@@ -328,21 +331,21 @@ app.get("/", (req, res) => {
 
 app.post('/upload', async (req, res) => {
     try {
-      const fileUrl = req.body.fileUrl;
-      const { secure_url } = await cloudinary.uploader.upload(fileUrl, { resource_type: "auto" });
-  
-      res.status(200).json({
-        success: true,
-        imageUrl: secure_url
-      });
+        const fileUrl = req.body.fileUrl;
+        const { secure_url } = await cloudinary.uploader.upload(fileUrl, { resource_type: "auto" });
+
+        res.status(200).json({
+            success: true,
+            imageUrl: secure_url
+        });
     } catch (error) {
-      console.error('Error uploading file:', error);
-      res.status(500).json({
-        success: false,
-        error: 'Something went wrong'
-      });
+        console.error('Error uploading file:', error);
+        res.status(500).json({
+            success: false,
+            error: 'Something went wrong'
+        });
     }
-  });
+});
 // app.listen(port, (error) => {
 //     if (!error) {
 //         console.log("Server Running on port")
