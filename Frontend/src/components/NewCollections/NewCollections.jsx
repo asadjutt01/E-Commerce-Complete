@@ -6,7 +6,7 @@ import Item from '../Item/Item'
 const NewCollections = () => {
     const [new_collections, setnew_collections] = useState([])
     useEffect(() => {
-        fetch("https://e-commerce-backend-ten-gray.vercel.app/newcollection", {
+        fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/newcollection", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

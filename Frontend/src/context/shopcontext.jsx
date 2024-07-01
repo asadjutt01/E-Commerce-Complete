@@ -19,7 +19,7 @@ const ShopContextprovider = (props) => {
     const [cartItem, setcartItem] = useState(getdefaultcart)
 
     useEffect(() => {
-        fetch("https://e-commerce-backend-ten-gray.vercel.app/allproduct", {
+        fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/allproduct", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const ShopContextprovider = (props) => {
 
 
         if (localStorage.getItem('auth-token')) {
-            fetch("https://e-commerce-backend-ten-gray.vercel.app/getcart", {
+            fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/getcart", {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
@@ -47,7 +47,7 @@ const ShopContextprovider = (props) => {
     const addtocart = (ItemId) => {
         setcartItem((prev) => ({ ...prev, [ItemId]: prev[ItemId] + 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch("https://e-commerce-backend-ten-gray.vercel.app/addtocart", {
+            fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/addtocart", {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',
@@ -65,7 +65,7 @@ const ShopContextprovider = (props) => {
     const removefromcart = (ItemId) => {
         setcartItem((prev) => ({ ...prev, [ItemId]: prev[ItemId] - 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch("https://e-commerce-backend-ten-gray.vercel.app/removefromcart", {
+            fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/removefromcart", {
                 method: "POST",
                 headers: {
                     Accept: 'application/json',

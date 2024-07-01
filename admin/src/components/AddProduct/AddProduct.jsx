@@ -27,7 +27,7 @@ const AddProduct = () => {
         product.new_price = Number(product.new_price);
         let formdata = new FormData()
         formdata.append('product', image)
-        await fetch("https://e-commerce-backend-ten-gray.vercel.app/upload", {
+        await fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/upload", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -37,7 +37,7 @@ const AddProduct = () => {
         if (responsedata.success) {
             product.image = responsedata.imageurl
             console.log(product)
-            await fetch("https://e-commerce-backend-ten-gray.vercel.app/addproduct", {
+            await fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/addproduct", {
                 method: "POST",
                 headers: {
                     Accept: "application/json",

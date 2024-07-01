@@ -7,7 +7,7 @@ const Popular = () => {
 
     const [popular_in_women, setpopular_in_women] = useState([])
     useEffect(() => {
-        fetch("https://e-commerce-backend-ten-gray.vercel.app/popularinwomen", {
+        fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/popularinwomen", {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

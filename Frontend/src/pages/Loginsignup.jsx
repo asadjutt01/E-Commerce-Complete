@@ -46,7 +46,7 @@ const Loginsignup = () => {
     e.preventDefault();
     console.log("Login Executed", formdata)
     let responsedata ;
-    await fetch('https://e-commerce-backend-ten-gray.vercel.app/login', {
+    await fetch('https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/login', {
 
       method: "POST",
       headers: {
@@ -68,7 +68,7 @@ const Loginsignup = () => {
     e.preventDefault();
     console.log("SignUp Executed", formdata)
     let responsedata ;
-    await fetch("https://e-commerce-backend-ten-gray.vercel.app/signup", {
+    await fetch("https://e-commerce-backend-9gkclwdt1-asad-nadeems-projects.vercel.app/signup", {
       method: "POST",
       headers: {
         Accept: 'application/form-data',
