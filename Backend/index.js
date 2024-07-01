@@ -15,7 +15,9 @@ const port = process.env.PORT || 4000;
 
 const app = express()
 const corsOptions = {
-    origin: 'https://e-com-shopper.netlify.app/'
+    origin: 'https://e-com-shopper.netlify.app/',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
 };
 app.use(cors(corsOptions));
 
